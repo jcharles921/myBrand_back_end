@@ -1,8 +1,10 @@
 {
   "name": "my-brand-api",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+
   "scripts": {
     "build": "babel src -d dist",
     "start": "npm run build && better-npm-run prod",
@@ -11,14 +13,14 @@
   },
   "betterScripts":{
     "dev": {
-      "command":"nodemon --exec babel-node ./src/app.js",
+      "command":"nodemon ./src/app.js",
       "env":{
         "NODE_ENV": "development",
         "PORT": 3000
       }
     },
     "test": {
-      "command":"nodemon --exec babel-node ./src/app.js",
+      "command":"nodemon ./src/app.js",
       "env":{
         "NODE_ENV": "test",
         "PORT": 5000
