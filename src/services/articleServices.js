@@ -15,3 +15,8 @@ export const getOneArticleService = async (id) => {
     const article = await Article.findOne({ _id: id })
     return article
 }
+
+export const updateArticle = async (id, data) => {
+    const article = await Article.findByIdAndUpdate({ _id: id, data })
+    return article
+}
