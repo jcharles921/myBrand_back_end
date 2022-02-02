@@ -30,7 +30,12 @@ export class ArticleController {
     async getArticle(req, res, next) {
         try {
             const article = await getOneArticleService(req.params.id)
-            res.status(200).json({ status: 200, message: "article retieved successfully", data: article })
+            if (typeof article !== "string") {
+                res.status(200).json({ status: 200, message: "article retieved successfully", data: article })
+            } else {
+                res.status(404).json({ status: 404, message: article })
+            }
+
         } catch (error) {
             console.log(error)
         }
