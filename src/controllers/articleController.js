@@ -4,7 +4,7 @@ export class ArticleController {
 
     async createArticle(req, res, next) {
         try {
-            req.body.image = await uploadFile(req)
+            req.body.image = await uploadFile(req) || req.body.image
             const data = {
                 title: req.body.title,
                 content: req.body.content,
